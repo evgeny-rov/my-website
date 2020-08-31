@@ -1,10 +1,13 @@
 import React from 'react';
+import { AppWrapper, Background } from './styled/general';
+import bg from './assets/bg.jpg'
 
 function App() {
   return (
-    <div className="App">
-      <span>HI, hellow</span>
-    </div>
+    <AppWrapper>
+      <Background src={bg} alt="background image"/>
+      <span>hi</span>
+    </AppWrapper>
   );
 }
 
