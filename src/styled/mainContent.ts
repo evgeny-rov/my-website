@@ -47,3 +47,46 @@ export const StyledSkills = styled.div`
     font-size: 0.87rem;
   }
 `;
+
+export const ProjectsWrapper = styled.div`
+  justify-self: baseline;
+  grid-area: projects;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const ProjectsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50%;
+`;
+
+export const StyledProject = styled.span`
+  width: 50%;
+
+  span, a {
+    font-size: 0.95rem;
+  }
+
+  span {
+    text-decoration: underline;
+    color: grey;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    transition: all .4s;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+    &:hover {
+      color: pink;
+    }
+  }
+`;
