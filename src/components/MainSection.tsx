@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { StyledMainSection } from '../styled/mainContent';
+import { StyledMainSection } from '../styled/mainSection';
 
 const MainSection: FunctionComponent = ({ children }) => {
   return (

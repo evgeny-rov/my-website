@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { Link } from './general';
 
 export const StyledMainSection = styled.section`
   box-sizing: border-box;
@@ -14,14 +15,6 @@ export const StyledMainSection = styled.section`
     'desc desc secondary'
     'projects projects secondary';
   background-color: rgba(0, 0, 0, 0.1);
-
-  span, h1, h2 {
-    text-transform: uppercase;
-    font-weight: 200;
-    color: #fff;
-    font-size: 1.25rem;
-    letter-spacing: 1px;
-  }
 `;
 
 export const StyledDescription = styled.span`
@@ -36,28 +29,21 @@ export const StyledSkills = styled.div`
   place-items: end;
   text-align: right;
   grid-area: secondary;
-
-  h2 {
-    font-size: 0.9rem;
-    margin-block-start: 0;
-  }
-
-  span {
-    display: block;
-    font-size: 0.87rem;
-  }
 `;
 
-export const ProjectsWrapper = styled.div`
+export const ProjectsSection = styled.div`
   justify-self: baseline;
   grid-area: projects;
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
-export const ProjectsContainer = styled.div`
+export const ProjectsContainer = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,27 +52,18 @@ export const ProjectsContainer = styled.div`
   height: 50%;
 `;
 
-export const StyledProject = styled.span`
+export const StyledProject = styled.li`
   width: 50%;
+`;
 
-  span, a {
-    font-size: 0.95rem;
-  }
+export const ProjectId = styled.span`
+  font-size: 0.95rem;
+  color: grey;
+  text-decoration: underline;
+`;
 
-  span {
-    text-decoration: underline;
-    color: grey;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-    transition: all .4s;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-
-    &:hover {
-      color: pink;
-    }
-  }
+export const ProjectLink = styled(Link)`
+  font-size: 0.95rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 `;

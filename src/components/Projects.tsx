@@ -1,28 +1,25 @@
 import React from 'react';
-import { ProjectsWrapper, ProjectsContainer, StyledProject } from '../styled/mainContent';
+import { ProjectsSection, ProjectsContainer, StyledProject, ProjectId, ProjectLink } from '../styled/mainSection';
+import projects from '../data/projects';
 
 export default () => {
+  const renderProjects = () => (
+    projects.map(({ visualId, name, demoURL }, id) => {
+      return (
+        <StyledProject key={id}>
+          <ProjectId>{visualId}</ProjectId>
+          <ProjectLink href={demoURL} target="_blank">{name}</ProjectLink>
+        </StyledProject>
+      );
+    })
+  );
+
   return (
-    <ProjectsWrapper>
-      <h2>projects</h2>
+    <ProjectsSection>
+      <h1>projects</h1>
       <ProjectsContainer>
-        <StyledProject>
-          <span>01</span>
-          <a href="https://evgeny-rov.github.io/the-chompus-game/">the chompus game</a>
-        </StyledProject>
-        <StyledProject>
-          <span>02</span>
-          <a href="https://evgeny-rov.github.io/the-chompus-game/">in24</a>
-        </StyledProject>
-        <StyledProject>
-          <span>03</span>
-          <a href="https://evgeny-rov.github.io/the-chompus-game/">ava-assistant</a>
-        </StyledProject>
-        <StyledProject>
-          <span>04</span>
-          <a href="https://evgeny-rov.github.io/the-chompus-game/">3d dice roller</a>
-        </StyledProject>
+        {renderProjects()}
       </ProjectsContainer>
-    </ProjectsWrapper>
+    </ProjectsSection>
   );
 };

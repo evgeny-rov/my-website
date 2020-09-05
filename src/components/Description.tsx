@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledDescription } from '../styled/mainContent';
+import { StyledDescription } from '../styled/mainSection';
 
 export default () => {
   return (

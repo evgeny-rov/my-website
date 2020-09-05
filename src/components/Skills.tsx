@@ -1,22 +1,22 @@
 import React from 'react';
-import { StyledSkills } from '../styled/mainContent';
+import { StyledSkills } from '../styled/mainSection';
 
 export default () => {
   return (
     <StyledSkills>
       <h2>skills</h2>
-      <span>typescript</span>
-      <span>javascript</span>
-      <span>html</span>
-      <span>css</span>
-      <span>react</span>
-      <span>redux</span>
-      <span>reselect</span>
-      <span>styled-components</span>
-      <span>pwa</span>
-      <span>webpack</span>
-      <span>three.js</span>
-      <span>phaser</span>
+      <p>typescript</p>
+      <p>javascript</p>
+      <p>html</p>
+      <p>css</p>
+      <p>react</p>
+      <p>redux</p>
+      <p>reselect</p>
+      <p>styled-components</p>
+      <p>pwa</p>
+      <p>webpack</p>
+      <p>three.js</p>
+      <p>phaser</p>
     </StyledSkills>
   );
 };
