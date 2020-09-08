@@ -1,25 +1,35 @@
 import React from 'react';
-import { ProjectsSection, ProjectsContainer, StyledProject, ProjectId, ProjectLink } from '../styled/mainSection';
+import {
+  ProjectsSection,
+  ProjectsContainer,
+  StyledProject,
+  ProjectId,
+  ProjectLink,
+} from '../styled/mainSection';
 import projects from '../data/projects';
 
+const itemAnims: any = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+};
+
 export default () => {
-  const renderProjects = () => (
+  const renderProjects = () =>
     projects.map(({ visualId, name, demoURL }, id) => {
       return (
         <StyledProject key={id}>
           <ProjectId>{visualId}</ProjectId>
-          <ProjectLink href={demoURL} target="_blank">{name}</ProjectLink>
+          <ProjectLink href={demoURL} target="_blank">
+            {name}
+          </ProjectLink>
         </StyledProject>
       );
-    })
-  );
+    });
 
   return (
-    <ProjectsSection>
+    <ProjectsSection variants={itemAnims}>
       <h1>projects</h1>
-      <ProjectsContainer>
-        {renderProjects()}
-      </ProjectsContainer>
+      <ProjectsContainer>{renderProjects()}</ProjectsContainer>
     </ProjectsSection>
   );
 };

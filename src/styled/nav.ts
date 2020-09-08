@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
+import { motion } from 'framer-motion';
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled(motion.nav)`
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -20,5 +21,5 @@ export const NavList = styled.ul`
 `;
 
 export const ListItem = styled.li`
-    margin-left: 2.5rem;
+  margin-left: 2.5rem;
 `;

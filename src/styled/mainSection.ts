@@ -1,12 +1,21 @@
 import styled from 'styled-components/macro';
 import { Link } from './general';
+import { motion } from 'framer-motion';
 
-export const StyledMainSection = styled.section`
-  box-sizing: border-box;
+const bgcolor = 'rgba(0, 0, 0, 0.1)'
+
+export const MainSectionContainer = styled(motion.div)`
   position: absolute;
   top: 15%;
   width: 50rem;
   height: 22rem;
+  border-radius: 2px;
+`;
+
+export const StyledMainSection = styled(motion.section)`
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -14,16 +23,19 @@ export const StyledMainSection = styled.section`
   grid-template-areas:
     'desc desc secondary'
     'projects projects secondary';
-  background-color: rgba(0, 0, 0, 0.1);
+
 `;
 
-export const StyledDescription = styled.span`
+//rgba(0, 0, 0, 0.2)
+//background: linear-gradient(90deg, ${bgcolor}, rgba(100, 100, 100, 0) 10% 90%, ${bgcolor});
+
+export const StyledDescription = styled(motion.span)`
   justify-self: center;
   text-align: left;
   grid-area: desc;
 `;
 
-export const StyledSkills = styled.div`
+export const StyledSkills = styled(motion.div)`
   justify-self: end;
   display: grid;
   place-items: end;
@@ -31,7 +43,7 @@ export const StyledSkills = styled.div`
   grid-area: secondary;
 `;
 
-export const ProjectsSection = styled.div`
+export const ProjectsSection = styled(motion.div)`
   justify-self: baseline;
   grid-area: projects;
   text-align: left;
@@ -58,12 +70,20 @@ export const StyledProject = styled.li`
 
 export const ProjectId = styled.span`
   font-size: 0.95rem;
-  color: grey;
+  color: rgba(255, 255, 255, 0.2);
   text-decoration: underline;
 `;
 
-export const ProjectLink = styled(Link)`
+export const ProjectLink = styled(motion.a)`
   font-size: 0.95rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  text-decoration: none;
+  color: #f5f5f5;
+  transition: all .7s;
+
+  &:hover {
+    color: rgba(240, 220, 195, 1);
+    margin-left: 1rem;
+  }
 `;
