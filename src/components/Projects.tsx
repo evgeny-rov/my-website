@@ -4,30 +4,41 @@ import {
   ProjectsContainer,
   StyledProject,
   ProjectId,
-  ProjectLink,
+  DemoLink,
 } from '../styled/mainSection';
+import { Link } from '../styled/general';
 import projects from '../data/projects';
-
-const itemAnims: any = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-};
+import { sectionChildAnims } from '../framer/animations';
+import { ReactComponent as GithubIcon } from '../assets/github-icon.svg';
 
 export default () => {
   const renderProjects = () =>
-    projects.map(({ visualId, name, demoURL }, id) => {
+    projects.map(({ id, name, demoURL, repoURL }, index) => {
       return (
-        <StyledProject key={id}>
-          <ProjectId>{visualId}</ProjectId>
-          <ProjectLink href={demoURL} target="_blank">
+        <StyledProject key={index}>
+          <ProjectId>{id}</ProjectId>
+          <DemoLink
+            href={demoURL}
+            target="_blank"
+            title="Link to a project demo"
+            rel="noopener noreferrer"
+          >
             {name}
-          </ProjectLink>
+          </DemoLink>
+          <Link
+            href={repoURL}
+            target="_blank"
+            title="Link to github repository"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon />
+          </Link>
         </StyledProject>
       );
     });
 
   return (
-    <ProjectsSection variants={itemAnims}>
+    <ProjectsSection variants={sectionChildAnims}>
       <h1>projects</h1>
       <ProjectsContainer>{renderProjects()}</ProjectsContainer>
     </ProjectsSection>

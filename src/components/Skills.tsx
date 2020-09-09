@@ -1,14 +1,10 @@
 import React from 'react';
 import { StyledSkills } from '../styled/mainSection';
-
-const itemAnims: any = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-};
+import { sectionChildAnims } from '../framer/animations';
 
 export default () => {
   return (
-    <StyledSkills variants={itemAnims}>
+    <StyledSkills variants={sectionChildAnims}>
       <h2>skills</h2>
       <p>typescript</p>
       <p>javascript</p>

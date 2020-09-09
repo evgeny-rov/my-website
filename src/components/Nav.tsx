@@ -1,10 +1,13 @@
-import React from 'react';
-import { NavContainer, NavList, ListItem } from '../styled/nav';
+import React, { useState } from 'react';
+import { NavContainer, NavList, StyledLi } from '../styled/nav';
 import { Link, SpecialLink } from '../styled/general';
+import Contact from './Contact';
 
 const MY_GITHUB_URL = 'https://github.com/evgeny-rov';
 
 export default () => {
+  const [showContact, setShowContact] = useState(true);
+
   return (
     <NavContainer
       animate={{ y: 0 }}
@@ -12,17 +15,22 @@ export default () => {
       transition={{ type: 'spring', mass: 0.1, stiffness: 50, delay: 1.2 }}
     >
       <NavList>
-        <ListItem>
-          <Link href={MY_GITHUB_URL} target="_blank">
+        <StyledLi>
+          <Link href={MY_GITHUB_URL} target="_blank" rel="noopener noreferrer">
             github
           </Link>
-        </ListItem>
-        <ListItem>
-          <Link href="/">contacts</Link>
-        </ListItem>
-        <ListItem>
+        </StyledLi>
+        <StyledLi>
+          {showContact && <Contact setShowContact={setShowContact}/>}
+          <input
+            type="button"
+            onClick={() => setShowContact(!showContact)}
+            value="contact"
+          ></input>
+        </StyledLi>
+        <StyledLi>
           <SpecialLink href="#">hire me</SpecialLink>
-        </ListItem>
+        </StyledLi>
       </NavList>
     </NavContainer>
   );

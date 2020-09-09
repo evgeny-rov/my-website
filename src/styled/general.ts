@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro';
 import { createGlobalStyle } from 'styled-components/macro';
-import { motion } from 'framer-motion';
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -31,6 +30,16 @@ export const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 0.9rem;
   }
+
+  svg {
+    fill: rgba(240, 220, 195, 1);
+    transition: all 1s;
+
+    &:hover {
+      fill: #f5f5f5;
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 export const Overlay = styled.div`
@@ -43,10 +52,6 @@ export const Overlay = styled.div`
   color: #f5f5f5;
 `;
 
-export const AppWrapper = styled(Overlay)`
-  color: #f5f5f5;
-`;
-
 export const Background = styled.img`
   position: absolute;
   height: 100%;
@@ -55,10 +60,14 @@ export const Background = styled.img`
   z-index: -1;
 `;
 
-export const Link = styled(motion.a)`
+export const Link = styled.a`
   text-decoration: none;
   color: #f5f5f5;
   transition: all 0.7s;
+
+  &:hover {
+    color: rgba(240, 220, 195, 1);
+  }
 `;
 
 export const SpecialLink = styled(Link)`
@@ -70,13 +79,3 @@ export const SpecialLink = styled(Link)`
     text-transform: capitalize;
   }
 `;
-
-
-
-//text-shadow: -5px -5px 0 rgba(245, 77, 83, 0.5), 5px 5px 0 rgba(58, 245, 241, 0.5);
-//-5px -5px 0 rgba(245, 77, 83, 0.5), 5px 5px 0 rgba(58, 245, 241, 0.5)
-//color: rgba(0, 255, 255, 0.7);
-//text-shadow: 2px 2px 0 rgba(245, 77, 83, 1), 2px -2px 0 rgba(58, 245, 241, 1);
-//color: #f5f5f5;
-//rgba(117, 234, 207, 0.39)
-// background-color: rgba(50, 100, 250, 0.2);

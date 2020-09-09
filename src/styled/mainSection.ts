@@ -1,8 +1,5 @@
 import styled from 'styled-components/macro';
-import { Link } from './general';
 import { motion } from 'framer-motion';
-
-const bgcolor = 'rgba(0, 0, 0, 0.1)'
 
 export const MainSectionContainer = styled(motion.div)`
   position: absolute;
@@ -25,9 +22,6 @@ export const StyledMainSection = styled(motion.section)`
     'projects projects secondary';
 
 `;
-
-//rgba(0, 0, 0, 0.2)
-//background: linear-gradient(90deg, ${bgcolor}, rgba(100, 100, 100, 0) 10% 90%, ${bgcolor});
 
 export const StyledDescription = styled(motion.span)`
   justify-self: center;
@@ -66,6 +60,9 @@ export const ProjectsContainer = styled.ul`
 
 export const StyledProject = styled.li`
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 `;
 
 export const ProjectId = styled.span`
@@ -74,16 +71,15 @@ export const ProjectId = styled.span`
   text-decoration: underline;
 `;
 
-export const ProjectLink = styled(motion.a)`
+export const DemoLink = styled.a`
   font-size: 0.95rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
   text-decoration: none;
   color: #f5f5f5;
   transition: all .7s;
 
   &:hover {
     color: rgba(240, 220, 195, 1);
-    margin-left: 1rem;
   }
 `;

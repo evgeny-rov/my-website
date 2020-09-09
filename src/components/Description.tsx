@@ -1,14 +1,10 @@
 import React from 'react';
 import { StyledDescription } from '../styled/mainSection';
-
-const itemAnims: any = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-};
+import { sectionChildAnims } from '../framer/animations';
 
 export default () => {
   return (
-    <StyledDescription variants={itemAnims}>
+    <StyledDescription variants={sectionChildAnims}>
       i am a frontend developer, always eager to learn and make stuff better,
       let's make something great.
     </StyledDescription>

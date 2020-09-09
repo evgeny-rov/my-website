@@ -5,7 +5,13 @@ import { containerAnims, sectionAnims } from '../framer/animations';
 const MainSection: FunctionComponent = ({ children }) => {
   return (
     <MainSectionContainer {...containerAnims}>
-      <StyledMainSection initial="initial" animate="animate" variants={sectionAnims}>{children}</StyledMainSection>
+      <StyledMainSection
+        initial="initial"
+        animate="animate"
+        variants={sectionAnims}
+      >
+        {children}
+      </StyledMainSection>
     </MainSectionContainer>
   );
 };

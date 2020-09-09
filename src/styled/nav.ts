@@ -20,6 +20,6 @@ export const NavList = styled.ul`
   margin: 0;
 `;
 
-export const ListItem = styled.li`
+export const StyledLi = styled.li`
   margin-left: 2.5rem;
 `;
