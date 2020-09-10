@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, SyntheticEvent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
   ContactOverlay,
@@ -10,40 +10,53 @@ import {
   CloseBtn,
 } from '../styled/contact';
 
-interface Props {
-  setShowContact: Function;
-}
-
 const modalRoot: any = document.getElementById('modal-root');
 
-const Contact: FunctionComponent<Props> = ({ setShowContact }) => {
+const encode = (data: any) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
+
+interface Props {
+  showContacts: Function;
+}
+
+const Contacts: FunctionComponent<Props> = ({ showContacts }) => {
   const [state, setState] = useState({
     name: '',
     email: '',
     message: '',
-    success: false,
   });
 
-  const handleSubmit = (e: SyntheticEvent) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', state }),
+    })
+      .then(() => {
+        alert('Your message was sent!');
+        setState({ name: '', email: '', message: '' });
+        showContacts(false);
+      })
+      .catch((error) => alert());
+
     e.preventDefault();
-    console.log(state);
-    setTimeout(() => {
-      setState({ ...state, success: true });
-    }, 5000);
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
   const contactContent = (
-    <ContactOverlay>
-      <CloseBtn type="button" value="x" onClick={() => setShowContact(false)} />
+    <ContactOverlay animate={{ opacity: 1, y: 0 }} initial={{ y: -100, opacity: 0 }}>
+      <CloseBtn type="button" value="x" onClick={() => showContacts(false)} />
+      <ContactInfo>
+        <p>Contact me via email: bitsinmyhead@gmail.com</p>
+        <p>Or send me a message below</p>
+      </ContactInfo>
       <StyledForm action="#" onSubmit={handleSubmit}>
-        <ContactInfo>
-          <p>Contact me via email: bitsinmyhead@gmail.com</p>
-          <p>Or send me a message below</p>
-        </ContactInfo>
         <label>
           <p>name:</p>
           <InputText
@@ -74,7 +87,6 @@ const Contact: FunctionComponent<Props> = ({ setShowContact }) => {
           />
         </label>
         <StyledBtn type="submit" value="SEND" />
-        {state.success && <p>your message was sent</p>}
       </StyledForm>
     </ContactOverlay>
   );
@@ -82,4 +94,4 @@ const Contact: FunctionComponent<Props> = ({ setShowContact }) => {
   return ReactDOM.createPortal(contactContent, modalRoot);
 };
 
-export default Contact;
+export default Contacts;

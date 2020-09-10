@@ -4,9 +4,15 @@ import { motion } from 'framer-motion';
 export const MainSectionContainer = styled(motion.div)`
   position: absolute;
   top: 15%;
-  width: 50rem;
+  width: min(50rem, 100%);
   height: 22rem;
   border-radius: 2px;
+
+
+  @media(max-width: 450px) {
+    top: 0;
+    height: 100%;
+  }
 `;
 
 export const StyledMainSection = styled(motion.section)`
@@ -21,6 +27,15 @@ export const StyledMainSection = styled(motion.section)`
     'desc desc secondary'
     'projects projects secondary';
 
+    @media(max-width: 450px) {
+      place-items: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas:
+        'desc'
+        'projects'
+        'secondary';
+    }
 `;
 
 export const StyledDescription = styled(motion.span)`
@@ -35,6 +50,12 @@ export const StyledSkills = styled(motion.div)`
   place-items: end;
   text-align: right;
   grid-area: secondary;
+
+  @media(max-width: 450px) {
+    justify-self: start;
+    text-align: left;
+    place-items: start;
+  }
 `;
 
 export const ProjectsSection = styled(motion.div)`
@@ -63,6 +84,10 @@ export const StyledProject = styled.li`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  @media(max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const ProjectId = styled.span`

@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { NavContainer, NavList, StyledLi } from '../styled/nav';
-import { Link, SpecialLink } from '../styled/general';
-import Contact from './Contact';
+import {
+  NavContainer,
+  NavList,
+  StyledLi,
+  StyledBtn,
+  AccentBtn,
+} from '../styled/nav';
+import { Link } from '../styled/general';
+import Contact from './Contacts';
 
 const MY_GITHUB_URL = 'https://github.com/evgeny-rov';
 
 export default () => {
-  const [showContact, setShowContact] = useState(true);
+  const [showContact, setShowContact] = useState(false);
 
   return (
     <NavContainer
@@ -21,15 +27,19 @@ export default () => {
           </Link>
         </StyledLi>
         <StyledLi>
-          {showContact && <Contact setShowContact={setShowContact}/>}
-          <input
+          {showContact && <Contact showContacts={setShowContact} />}
+          <StyledBtn
             type="button"
-            onClick={() => setShowContact(!showContact)}
-            value="contact"
-          ></input>
+            value="contacts"
+            onClick={() => setShowContact(true)}
+          />
         </StyledLi>
         <StyledLi>
-          <SpecialLink href="#">hire me</SpecialLink>
+          <AccentBtn
+            type="button"
+            value="hire me"
+            onClick={() => setShowContact(true)}
+          />
         </StyledLi>
       </NavList>
     </NavContainer>
