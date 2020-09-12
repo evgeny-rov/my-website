@@ -8,7 +8,7 @@ import {
 } from '../styled/mainSection';
 import { Link } from '../styled/general';
 import projects from '../data/projects';
-import { sectionChildAnims } from '../framer/animations';
+import { mainSecChildAnims } from '../framer/animations';
 import { ReactComponent as GithubIcon } from '../assets/github-icon.svg';
 
 export default () => {
@@ -38,7 +38,7 @@ export default () => {
     });
 
   return (
-    <ProjectsSection variants={sectionChildAnims}>
+    <ProjectsSection variants={mainSecChildAnims}>
       <h1>projects</h1>
       <ProjectsContainer>{renderProjects()}</ProjectsContainer>
     </ProjectsSection>

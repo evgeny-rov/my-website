@@ -1,23 +1,25 @@
 import React from 'react';
 import { StyledSkills } from '../styled/mainSection';
-import { sectionChildAnims } from '../framer/animations';
+import { mainSecChildAnims } from '../framer/animations';
 
 export default () => {
   return (
-    <StyledSkills variants={sectionChildAnims}>
+    <StyledSkills variants={mainSecChildAnims}>
       <h2>skills</h2>
-      <p>typescript</p>
-      <p>javascript</p>
-      <p>html</p>
-      <p>css</p>
-      <p>react</p>
-      <p>redux</p>
-      <p>reselect</p>
-      <p>styled-components</p>
-      <p>pwa</p>
-      <p>webpack</p>
-      <p>three.js</p>
-      <p>phaser</p>
+      <ul>
+        <li>typescript</li>
+        <li>javascript</li>
+        <li>html</li>
+        <li>css</li>
+        <li>react</li>
+        <li>redux</li>
+        <li>reselect</li>
+        <li>styled-components</li>
+        <li>pwa</li>
+        <li>webpack</li>
+        <li>three.js</li>
+        <li>phaser</li>
+      </ul>
     </StyledSkills>
   );
 };

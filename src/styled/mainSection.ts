@@ -1,23 +1,21 @@
 import styled from 'styled-components/macro';
 import { motion } from 'framer-motion';
+import { Small_Screen_Size } from './general';
 
 export const MainSectionContainer = styled(motion.div)`
   position: absolute;
   top: 15%;
   width: min(50rem, 100%);
   height: 22rem;
-  border-radius: 2px;
 
-
-  @media(max-width: 450px), (max-height: 450px) {
-    width: 100%;
+  @media(max-width: ${Small_Screen_Size}), (max-height: ${Small_Screen_Size}) {
     top: 0;
+    width: 100%;
     height: 100%;
   }
 `;
 
 export const StyledMainSection = styled(motion.section)`
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
   padding: 2rem;
@@ -28,13 +26,18 @@ export const StyledMainSection = styled(motion.section)`
     'desc desc secondary'
     'projects projects secondary';
 
-  @media(max-width: 450px), (max-height: 450px) {
-    padding-top: 5rem;
+  h1, h2 {
+    margin-block-start: 0;
+    font-weight: 200;
+    letter-spacing: 1px;
   }
 
-  @media(max-width: 450px) {
-    padding-top: 5rem;
-    place-items: center;
+  @media(max-width: ${Small_Screen_Size}), (max-height: ${Small_Screen_Size}) {
+    padding-top: 7rem;
+  }
+
+  @media(max-width: ${Small_Screen_Size}) {
+    align-items: start;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
@@ -45,19 +48,48 @@ export const StyledMainSection = styled(motion.section)`
 `;
 
 export const StyledDescription = styled(motion.span)`
+  grid-area: desc;
   justify-self: center;
   text-align: left;
-  grid-area: desc;
+  font-weight: 200;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
 `;
 
 export const StyledSkills = styled(motion.div)`
+  grid-area: secondary;
   justify-self: end;
   display: grid;
-  place-items: end;
+  align-items: center;
+  justify-items: end;
   text-align: right;
-  grid-area: secondary;
 
-  @media(max-width: 450px) {
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    font-size: 0.87rem;
+  }
+
+  @media(max-height: ${Small_Screen_Size}) {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    li {
+      padding-inline-start: 1rem;
+    }
+  }
+
+  @media(max-width: ${Small_Screen_Size}) {
     justify-self: start;
     text-align: left;
     place-items: start;
@@ -65,12 +97,16 @@ export const StyledSkills = styled(motion.div)`
 `;
 
 export const ProjectsSection = styled(motion.div)`
-  justify-self: baseline;
   grid-area: projects;
-  text-align: left;
+  justify-self: baseline;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  text-align: left;
+
+  h1 {
+    font-size: 1.25rem;
+  }
 `;
 
 export const ProjectsContainer = styled.ul`
@@ -91,7 +127,7 @@ export const StyledProject = styled.li`
   align-items: center;
   justify-content: flex-start;
 
-  @media(max-width: 450px) {
+  @media(max-width: ${Small_Screen_Size}) {
     width: 100%;
   }
 `;

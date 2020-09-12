@@ -1,5 +1,8 @@
 import styled from 'styled-components/macro';
 import { createGlobalStyle } from 'styled-components/macro';
+import { motion } from 'framer-motion';
+
+export const Small_Screen_Size = '450px'; 
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -13,30 +16,12 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     text-transform: uppercase;
     font-weight: 200;
-  }
-
-  h1, h2, p, span, a {
-    font-weight: 200;
-    font-size: 1.25rem;
-    letter-spacing: 1px;
-  }
-
-  p {
-    font-size: 0.87rem;
-    margin: 0;
-  }
-
-  h1, h2 {
-    margin-block-start: 0;
-  }
-
-  h2 {
-    font-size: 0.9rem;
+    background: #000;
   }
 
   svg {
     fill: rgba(240, 220, 195, 1);
-    transition: all 1s;
+    transition: all 0.5s;
 
     &:hover {
       fill: #f5f5f5;
@@ -45,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled(motion.div)`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -53,6 +38,7 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   color: #f5f5f5;
+  z-index: 1;
 `;
 
 export const Background = styled.img`

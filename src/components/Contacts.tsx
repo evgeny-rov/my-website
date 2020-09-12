@@ -1,65 +1,50 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, ChangeEvent, useState } from 'react';
 import ReactDOM from 'react-dom';
-import {
-  ContactOverlay,
-  ContactInfo,
-  StyledForm,
-  InputText,
-  StyledTextarea,
-  StyledBtn,
-  CloseBtn,
-} from '../styled/contact';
+import { submitForm } from '../utils/formSubmission';
+import * as Contacts from '../styled/contacts';
+import { contactsAnims } from '../framer/animations';
 
 const modalRoot: any = document.getElementById('modal-root');
-
-const encode = (data: any) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
 
 interface Props {
   showContacts: Function;
 }
 
-const Contacts: FunctionComponent<Props> = ({ showContacts }) => {
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
+  const [state, setState] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e: React.SyntheticEvent) => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', state }),
-    })
-      .then(() => {
-        alert('Your message was sent!');
-        setState({ name: '', email: '', message: '' });
-        showContacts(false);
-      })
-      .catch((error) => alert());
+    const onSuccess = () => {
+      alert('Your message was sent!');
+      setState({ name: '', email: '', message: '' });
+      showContacts(false);
+    };
 
+    const onError = () => alert('Something went wrong, try again');
+
+    submitForm(state, onSuccess, onError);
     e.preventDefault();
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const contactContent = (
-    <ContactOverlay animate={{ opacity: 1, y: 0 }} initial={{ y: -100, opacity: 0 }}>
-      <CloseBtn type="button" value="x" onClick={() => showContacts(false)} />
-      <ContactInfo>
+  const contactsContent = (
+    <Contacts.Wrapper {...contactsAnims}>
+      <Contacts.CloseBtn
+        type="button"
+        value="x"
+        onClick={() => showContacts(false)}
+      />
+      <Contacts.Info>
         <p>Contact me via email: bitsinmyhead@gmail.com</p>
         <p>Or send me a message below</p>
-      </ContactInfo>
-      <StyledForm action="#" onSubmit={handleSubmit}>
+      </Contacts.Info>
+      <Contacts.Form action="#" onSubmit={handleSubmit}>
         <label>
-          <p>name:</p>
-          <InputText
+          name:
+          <Contacts.TextField
             type="text"
             name="name"
             required
@@ -68,8 +53,8 @@ const Contacts: FunctionComponent<Props> = ({ showContacts }) => {
           />
         </label>
         <label>
-          <p>email:</p>
-          <InputText
+          email:
+          <Contacts.TextField
             type="text"
             name="email"
             required
@@ -78,20 +63,20 @@ const Contacts: FunctionComponent<Props> = ({ showContacts }) => {
           />
         </label>
         <label>
-          <p>message:</p>
-          <StyledTextarea
+          message:
+          <Contacts.Textarea
             name="message"
             required
             value={state.message}
             onChange={handleChange}
           />
         </label>
-        <StyledBtn type="submit" value="SEND" />
-      </StyledForm>
-    </ContactOverlay>
+        <Contacts.Btn type="submit" value="SEND" />
+      </Contacts.Form>
+    </Contacts.Wrapper>
   );
 
-  return ReactDOM.createPortal(contactContent, modalRoot);
+  return ReactDOM.createPortal(contactsContent, modalRoot);
 };
 
-export default Contacts;
+export default ContactsModal;

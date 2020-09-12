@@ -1,47 +1,37 @@
 import React, { useState } from 'react';
-import {
-  NavContainer,
-  NavList,
-  StyledLi,
-  StyledBtn,
-  AccentBtn,
-} from '../styled/nav';
-import { Link } from '../styled/general';
-import Contact from './Contacts';
+import Contacts from './Contacts';
+import * as Nav from '../styled/nav';
+import { navAnims } from '../framer/animations';
 
 const MY_GITHUB_URL = 'https://github.com/evgeny-rov';
 
 export default () => {
-  const [showContact, setShowContact] = useState(false);
+  const [showContacts, setshowContacts] = useState(true);
 
   return (
-    <NavContainer
-      animate={{ y: 0 }}
-      initial={{ y: -2000 }}
-      transition={{ type: 'spring', mass: 0.1, stiffness: 50, delay: 1.2 }}
-    >
-      <NavList>
-        <StyledLi>
-          <Link href={MY_GITHUB_URL} target="_blank" rel="noopener noreferrer">
+    <Nav.Container {...navAnims}>
+      {showContacts && <Contacts showContacts={setshowContacts} />}
+      <Nav.List>
+        <Nav.Li>
+          <Nav.Link href={MY_GITHUB_URL} target="_blank" rel="noopener noreferrer">
             github
-          </Link>
-        </StyledLi>
-        <StyledLi>
-          {showContact && <Contact showContacts={setShowContact} />}
-          <StyledBtn
+          </Nav.Link>
+        </Nav.Li>
+        <Nav.Li>
+          <Nav.Btn
             type="button"
             value="contacts"
-            onClick={() => setShowContact(true)}
+            onClick={() => setshowContacts(true)}
           />
-        </StyledLi>
-        <StyledLi>
-          <AccentBtn
+        </Nav.Li>
+        <Nav.Li>
+          <Nav.AccentBtn
             type="button"
             value="hire me"
-            onClick={() => setShowContact(true)}
+            onClick={() => setshowContacts(true)}
           />
-        </StyledLi>
-      </NavList>
-    </NavContainer>
+        </Nav.Li>
+      </Nav.List>
+    </Nav.Container>
   );
 };

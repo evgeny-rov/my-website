@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { StyledMainSection, MainSectionContainer } from '../styled/mainSection';
-import { containerAnims, sectionAnims } from '../framer/animations';
+import { mainSecContainerAnims, mainSecAnims } from '../framer/animations';
 
 const MainSection: FunctionComponent = ({ children }) => {
   return (
-    <MainSectionContainer {...containerAnims}>
+    <MainSectionContainer {...mainSecContainerAnims}>
       <StyledMainSection
         initial="initial"
         animate="animate"
-        variants={sectionAnims}
+        variants={mainSecAnims}
       >
         {children}
       </StyledMainSection>

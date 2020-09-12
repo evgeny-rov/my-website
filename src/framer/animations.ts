@@ -1,4 +1,10 @@
-export const containerAnims: any = {
+export const navAnims = {
+  initial: { y: -2000 },
+  animate: { y: 0 },
+  transition: { type: 'spring', mass: 0.1, stiffness: 50, delay: 1.2 },
+};
+
+export const mainSecContainerAnims: any = {
   initial: { opacity: 0, y: 300, scale: 0 },
   animate: { opacity: 1, y: 0, scale: 1 },
   transition: {
@@ -9,7 +15,7 @@ export const containerAnims: any = {
   },
 };
 
-export const sectionAnims: any = {
+export const mainSecAnims: any = {
   animate: {
     background: [
       `linear-gradient(360deg, rgba(0, 0, 0, 0) 80%, rgba(200, 140, 95, 0.2))`,
@@ -23,12 +29,23 @@ export const sectionAnims: any = {
       staggerChildren: 0.2,
       repeat: Infinity,
       duration: 20,
-      repeatType: 'reverse'
+      repeatType: 'reverse',
     },
   },
 };
 
-export const sectionChildAnims: any = {
+export const mainSecChildAnims = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
+};
+
+export const contactsAnims = {
+  initial: { opacity: 0, y: -100 },
+  animate: { opacity: 1, y: 0 },
+  transition: {
+    type: 'spring',
+    delay: 0.5,
+    restDelta: 0.001,
+    stiffness: 30,
+  },
 };
