@@ -26,7 +26,9 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
     e.preventDefault();
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
@@ -41,7 +43,13 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
         <p>Contact me via email: bitsinmyhead@gmail.com</p>
         <p>Or send me a message below</p>
       </Contacts.Info>
-      <Contacts.Form action="#" onSubmit={handleSubmit}>
+      <Contacts.Form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="#"
+        onSubmit={handleSubmit}
+      >
         <label>
           name:
           <Contacts.TextField
