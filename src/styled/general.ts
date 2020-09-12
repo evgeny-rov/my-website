@@ -2,6 +2,10 @@ import styled from 'styled-components/macro';
 import { createGlobalStyle } from 'styled-components/macro';
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     font-family: 'Roboto Mono', 'Ubuntu Mono', monospace;
@@ -49,7 +53,6 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   color: #f5f5f5;
-  overflow-y: auto;
 `;
 
 export const Background = styled.img`

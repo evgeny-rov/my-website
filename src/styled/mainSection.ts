@@ -9,7 +9,8 @@ export const MainSectionContainer = styled(motion.div)`
   border-radius: 2px;
 
 
-  @media(max-width: 450px) {
+  @media(max-width: 450px), (max-height: 450px) {
+    width: 100%;
     top: 0;
     height: 100%;
   }
@@ -27,15 +28,20 @@ export const StyledMainSection = styled(motion.section)`
     'desc desc secondary'
     'projects projects secondary';
 
-    @media(max-width: 450px) {
-      place-items: center;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas:
-        'desc'
-        'projects'
-        'secondary';
-    }
+  @media(max-width: 450px), (max-height: 450px) {
+    padding-top: 5rem;
+  }
+
+  @media(max-width: 450px) {
+    padding-top: 5rem;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      'desc'
+      'projects'
+      'secondary';
+  }
 `;
 
 export const StyledDescription = styled(motion.span)`
