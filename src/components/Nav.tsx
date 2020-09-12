@@ -6,7 +6,7 @@ import { navAnims } from '../framer/animations';
 const MY_GITHUB_URL = 'https://github.com/evgeny-rov';
 
 export default () => {
-  const [showContacts, setshowContacts] = useState(true);
+  const [showContacts, setshowContacts] = useState(false);
 
   return (
     <Nav.Container {...navAnims}>
