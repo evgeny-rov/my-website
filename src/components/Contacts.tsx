@@ -44,7 +44,6 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
         <p>Or send me a message below</p>
       </Contacts.Info>
       <Contacts.Form
-        name="contact"
         method="post"
         data-netlify="true"
         onSubmit={handleSubmit}
