@@ -21,6 +21,7 @@ export const submitForm = async (
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encodeForm({ 'form-name': 'contact', state }),
     });
+    console.log(state)
     console.log(request)
   } catch (e) {
     onError();
