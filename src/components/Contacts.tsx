@@ -45,9 +45,8 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
       </Contacts.Info>
       <Contacts.Form
         name="contact"
-        method="POST"
+        method="post"
         data-netlify="true"
-        action="#"
         onSubmit={handleSubmit}
       >
         <label>
@@ -63,7 +62,7 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
         <label>
           email:
           <Contacts.TextField
-            type="text"
+            type="email"
             name="email"
             required
             value={state.email}
