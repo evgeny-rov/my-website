@@ -19,10 +19,9 @@ export const submitForm = async (
     const request = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeForm({ 'form-name': 'contact', state }),
+      body: encodeForm({ 'form-name': 'contact', ...state }),
     });
-    console.log(state)
-    console.log(request)
+    request.status === 200 && onSuccess();
   } catch (e) {
     onError();
   }

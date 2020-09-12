@@ -50,7 +50,6 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
         data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="contact" />  
         <label>
           name:
           <Contacts.TextField
