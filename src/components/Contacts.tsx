@@ -44,10 +44,13 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
         <p>Or send me a message below</p>
       </Contacts.Info>
       <Contacts.Form
+        name="contact"
         method="post"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
       >
+        <input type="hidden" name="form-name" value="contact" />  
         <label>
           name:
           <Contacts.TextField
