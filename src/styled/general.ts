@@ -1,8 +1,20 @@
 import styled from 'styled-components/macro';
-import { createGlobalStyle } from 'styled-components/macro';
+import { createGlobalStyle, keyframes } from 'styled-components/macro';
 import { motion } from 'framer-motion';
 
-export const Small_Screen_Size = '450px'; 
+export const Small_Screen_Size = '450px';
+
+const pulse = keyframes`
+  from {
+    transform: scale(1);
+    fill: rgba(240, 220, 195, 1);
+  }
+
+  to {
+    transform: scale(1.3);
+    fill: #f5f5f5;
+  }
+`;
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -20,13 +32,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   svg {
-    fill: rgba(240, 220, 195, 1);
+    fill: rgba(240, 220, 195, 0.7);
     transition: all 0.5s;
-
-    &:hover {
-      fill: #f5f5f5;
-      transform: rotate(360deg);
-    }
+    animation: ${pulse} 2s ease-in-out infinite alternate;
   }
 `;
 
@@ -53,6 +61,8 @@ export const Link = styled.a`
   text-decoration: none;
   color: #f5f5f5;
   transition: all 0.7s;
+  display: grid;
+  place-items: center;
 
   &:hover {
     color: rgba(240, 220, 195, 1);

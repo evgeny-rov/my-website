@@ -129,13 +129,13 @@ export const StyledProject = styled.li`
 
   @media(max-width: ${Small_Screen_Size}) {
     width: 100%;
+    padding: 0.2rem 0;
   }
 `;
 
 export const ProjectId = styled.span`
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.2);
-  text-decoration: underline;
 `;
 
 export const DemoLink = styled.a`
@@ -143,10 +143,10 @@ export const DemoLink = styled.a`
   margin-left: 0.7rem;
   margin-right: 0.7rem;
   text-decoration: none;
-  color: #f5f5f5;
+  color: rgba(240, 220, 195, 1);
   transition: all .7s;
 
   &:hover {
-    color: rgba(240, 220, 195, 1);
+    color: #f5f5f5;
   }
 `;
