@@ -4,20 +4,18 @@ import Description from './components/Description';
 import Skills from './components/Skills';
 import Nav from './components/Nav';
 import Projects from './components/Projects';
-import { Overlay, Background } from './styled/general';
-import bg from './assets/bg.jpg';
+import { AppWrapper } from './styled/general';
 
 function App() {
   return (
-    <Overlay>
-      <Background src={bg} alt="background image" />
+    <AppWrapper>
       <Nav />
       <MainSection>
         <Description />
         <Projects />
         <Skills />
       </MainSection>
-    </Overlay>
+    </AppWrapper>
   );
 }
 

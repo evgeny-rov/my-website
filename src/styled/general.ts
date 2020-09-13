@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro';
 import { createGlobalStyle, keyframes } from 'styled-components/macro';
 import { motion } from 'framer-motion';
+import bg from '../assets/bg.jpg';
 
-export const Small_Screen_Size = '450px';
+export const Small_Screen_Size = '600px';
 
 const pulse = keyframes`
   from {
@@ -49,12 +50,11 @@ export const Overlay = styled(motion.div)`
   z-index: 1;
 `;
 
-export const Background = styled.img`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
+export const AppWrapper = styled(Overlay)`
+  background-image: url(${bg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const Link = styled.a`

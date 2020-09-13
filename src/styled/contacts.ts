@@ -25,7 +25,7 @@ export const Form = styled.form`
     border: 1px solid #f5f5f5;
     border-radius: 2px;
     color: #f5f5f5;
-    transform: skewX(3deg)
+    transform: skewX(2deg)
   }
 `;
 

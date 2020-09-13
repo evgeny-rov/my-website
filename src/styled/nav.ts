@@ -5,7 +5,6 @@ import { Small_Screen_Size } from './general';
 export const Container = styled(motion.nav)`
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   height: 5rem;
   z-index: 10;
@@ -55,6 +54,7 @@ export const Btn = styled.input`
   transition: all .5s;
   font-family: 'Roboto Mono', 'Ubuntu Mono', monospace;
   text-transform: uppercase;
+  cursor: pointer;
 
   &:hover {
     color: rgba(240, 220, 195, 1);

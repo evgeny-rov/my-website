@@ -7,6 +7,7 @@ export const MainSectionContainer = styled(motion.div)`
   top: 15%;
   width: min(50rem, 100%);
   height: 22rem;
+  overflow-y: visible;
 
   @media(max-width: ${Small_Screen_Size}), (max-height: ${Small_Screen_Size}) {
     top: 0;
@@ -37,7 +38,7 @@ export const StyledMainSection = styled(motion.section)`
   }
 
   @media(max-width: ${Small_Screen_Size}) {
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     align-items: start;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -54,7 +55,11 @@ export const StyledDescription = styled(motion.span)`
   text-align: left;
   font-weight: 200;
   font-size: 1.25rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+
+  @media(max-width: ${Small_Screen_Size}) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const StyledSkills = styled(motion.div)`
@@ -76,17 +81,13 @@ export const StyledSkills = styled(motion.div)`
   }
 
   li {
-    font-size: 0.87rem;
+    font-size: 0.9rem;
   }
 
-  @media(max-height: ${Small_Screen_Size}) {
+  @media(max-height: 400px), (max-width: ${Small_Screen_Size}) {
     ul {
       display: grid;
       grid-template-columns: 1fr 1fr;
-    }
-
-    li {
-      padding-inline-start: 1rem;
     }
   }
 
@@ -94,6 +95,10 @@ export const StyledSkills = styled(motion.div)`
     justify-self: start;
     text-align: left;
     place-items: start;
+
+    li {
+      font-size: 0.7rem;
+    }
   }
 `;
 
@@ -106,7 +111,7 @@ export const ProjectsSection = styled(motion.div)`
   text-align: left;
 
   h1 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 `;
 
@@ -137,6 +142,7 @@ export const StyledProject = styled.li`
 export const ProjectId = styled.span`
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.2);
+  text-decoration: underline;
 `;
 
 export const DemoLink = styled.a`
