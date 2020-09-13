@@ -37,6 +37,7 @@ export const StyledMainSection = styled(motion.section)`
   }
 
   @media(max-width: ${Small_Screen_Size}) {
+    grid-gap: 2rem;
     align-items: start;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
