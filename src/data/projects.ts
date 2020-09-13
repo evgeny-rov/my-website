@@ -21,7 +21,7 @@ const projects: Array<project> = [
   {
     id: '03',
     name: 'ava assistant',
-    demoURL: 'https://github.com/evgeny-rov/ava-assistant/template',
+    demoURL: 'https://evgeny-rov.github.io/ava-assistant/',
     repoURL: 'https://github.com/evgeny-rov/ava-assistant',
   },
   {
