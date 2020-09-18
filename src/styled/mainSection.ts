@@ -142,18 +142,20 @@ export const StyledProject = styled.li`
 export const ProjectId = styled.span`
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.2);
-  text-decoration: underline;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `;
 
-export const DemoLink = styled.a`
+export const DemoLink = styled(motion.a)`
   font-size: 0.95rem;
   margin-left: 0.7rem;
   margin-right: 0.7rem;
   text-decoration: none;
   color: rgba(240, 220, 195, 1);
+  border-bottom: 1px solid rgba(240, 220, 195, 0.5);
   transition: all .7s;
 
   &:hover {
     color: #f5f5f5;
+    border-bottom: 1px solid rgba(240, 220, 195, 1);
   }
 `;
