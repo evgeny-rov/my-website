@@ -40,7 +40,7 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
         onClick={() => showContacts(false)}
       />
       <Contacts.Info>
-        <p>Contact me via email: bitsinmyhead@gmail.com</p>
+        <p>Contact me via email: evgenyrov.me@gmail.com</p>
         <p>Or send me a message below</p>
       </Contacts.Info>
       <Contacts.Form

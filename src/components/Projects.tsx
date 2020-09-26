@@ -13,14 +13,14 @@ import { ReactComponent as GithubIcon } from '../assets/github-icon.svg';
 
 export default () => {
   const renderProjects = () =>
-    projects.map(({ id, name, demoURL, repoURL }, index) => {
+    projects.map(({ id, name, description, demoURL, repoURL }, index) => {
       return (
         <StyledProject key={index}>
           <ProjectId>{id}</ProjectId>
           <DemoLink
             href={demoURL}
             target="_blank"
-            title="Link to a project demo"
+            title={description}
             rel="noopener noreferrer"
           >
             {name}
