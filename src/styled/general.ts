@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import { createGlobalStyle, keyframes } from 'styled-components/macro';
 import { motion } from 'framer-motion';
-import bg from '../assets/bg.jpg';
+import bg from '../assets/bgv2.jpg';
 
 export const Small_Screen_Size = '600px';
 
