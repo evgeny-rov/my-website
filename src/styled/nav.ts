@@ -43,7 +43,7 @@ export const Link = styled.a`
   }
 `;
 
-export const Btn = styled.input`
+export const Btn = styled.button`
   background: none;
   border: none;
   padding: 0;

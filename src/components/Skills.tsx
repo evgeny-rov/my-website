@@ -1,11 +1,13 @@
 import React from 'react';
+import useTypedTranslation from '../hooks/useTypedTranslation';
 import { StyledSkills } from '../styled/mainSection';
 import { mainSecChildAnims } from '../framer/animations';
 
 export default () => {
+  const { t } = useTypedTranslation();
   return (
     <StyledSkills variants={mainSecChildAnims}>
-      <h2>skills</h2>
+      <h2>{t('skills')}</h2>
       <ul>
         <li>typescript</li>
         <li>javascript</li>

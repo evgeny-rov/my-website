@@ -34,11 +34,9 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
 
   const contactsContent = (
     <Contacts.Wrapper {...contactsAnims}>
-      <Contacts.CloseBtn
-        type="button"
-        value="x"
-        onClick={() => showContacts(false)}
-      />
+      <Contacts.CloseBtn onClick={() => showContacts(false)}>
+        x
+      </Contacts.CloseBtn>
       <Contacts.Info>
         <p>Contact me via email: evgenyrov.me@gmail.com</p>
         <p>Or send me a message below</p>
@@ -79,7 +77,7 @@ const ContactsModal: FunctionComponent<Props> = ({ showContacts }) => {
             onChange={handleChange}
           />
         </label>
-        <Contacts.Btn type="submit" value="SEND" />
+        <Contacts.Btn type="submit">SEND</Contacts.Btn>
       </Contacts.Form>
     </Contacts.Wrapper>
   );

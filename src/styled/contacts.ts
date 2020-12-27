@@ -39,7 +39,7 @@ export const Textarea = styled.textarea`
   width: 100%;
 `;
 
-export const Btn = styled.input`
+export const Btn = styled.button`
   width: 50%;
   height: 2rem;
   transition: all .5s;
@@ -50,7 +50,7 @@ export const Btn = styled.input`
   }
 `;
 
-export const CloseBtn = styled.input`
+export const CloseBtn = styled.button`
   position: absolute;
   top: 1rem;
   right: 1rem;

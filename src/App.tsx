@@ -1,4 +1,5 @@
 import React from 'react';
+import './i18n';
 import MainSection from './components/MainSection';
 import Description from './components/Description';
 import Skills from './components/Skills';
